@@ -1,29 +1,40 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f0f2f5; /* Lighter gray */
+    color: #1c1e21; /* Darker text */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-size: 16px;
 }
 
-.container, .meeting-container {
+.container {
     background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadow */
     text-align: center;
-    max-width: 500px;
+    max-width: 550px;
     width: 90%;
 }
 
 h1 {
-    color: #444;
-    margin-bottom: 20px;
+    color: #1c1e21;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+h2 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
 }
 
 /* Form Styles (index.html) */
@@ -34,41 +45,128 @@ h1 {
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px; /* More space */
+    font-weight: 500;
+    color: #606770;
 }
 
 .form-group input[type="text"] {
-    width: calc(100% - 22px); /* Account for padding and border */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(100% - 24px); /* Account for padding and border */
+    padding: 12px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    outline: none;
 }
 
 button {
     background-color: #007bff;
     color: white;
-    padding: 12px 20px;
+    padding: 12px 25px; /* Slightly more padding */
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    display: inline-flex; /* Align icon and text */
-    align-items: center; /* Center icon and text vertically */
-    gap: 8px; /* Space between icon and text */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 button:hover {
     background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#create-meeting-btn {
+button:active {
+    background-color: #004085;
+}
+
+#generate-link-btn, #join-with-link-btn {
     width: 100%;
-    margin-bottom: 15px;
 }
 
-/* Meeting Page Styles (meet.html) */
+#copy-link-btn {
+    background-color: #6c757d;
+}
+#copy-link-btn:hover {
+    background-color: #5a6268;
+}
+
+#join-now-btn {
+    background-color: #28a745;
+}
+#join-now-btn:hover {
+    background-color: #218838;
+}
+
+/* Lobby Styles (meet.html) */
+.lobby-container {
+    max-width: 600px;
+}
+
+.lobby-preview {
+    position: relative;
+    display: inline-block; /* Center the block */
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    background-color: #e0e0e0; /* Placeholder background */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#lobby-video-preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #333;
+}
+
+.lobby-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 15px;
+    border-radius: 25px;
+}
+
+.lobby-controls button {
+    background-color: #4a4a4a;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+}
+.lobby-controls button:hover {
+    background-color: #5a5a5a;
+}
+.lobby-controls button svg {
+    fill: white;
+}
+
+#join-meeting-btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Meeting Room Styles (meet.html) */
 .meeting-container {
     max-width: 100%;
     width: 100%;
@@ -78,31 +176,33 @@ button:hover {
     flex-direction: column;
     box-shadow: none;
     border-radius: 0;
+    background-color: #202124; /* Dark background */
 }
 
 .video-grid {
     flex-grow: 1;
     display: grid;
-    gap: 10px;
-    padding: 10px;
-    background-color: #202124; /* Dark background for video area */
-    overflow-y: auto; /* Allow scrolling if many participants */
-    /* Grid layout - adjust columns based on participant count */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 8px; /* Slightly reduced gap */
+    padding: 8px;
+    overflow-y: auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .video-container {
     position: relative;
-    background-color: #3c4043; /* Placeholder color */
+    background-color: #3c4043; /* Darker placeholder */
     border-radius: 8px;
     overflow: hidden;
-    min-height: 200px; /* Minimum height for video elements */
+    min-height: 180px; /* Adjust min height */
+    display: flex; /* Use flex for centering placeholder */
+    justify-content: center;
+    align-items: center;
 }
 
 .video-container video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the container */
+    object-fit: cover;
     display: block;
 }
 
@@ -110,50 +210,91 @@ button:hover {
     position: absolute;
     bottom: 8px;
     left: 8px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
-    padding: 4px 8px;
+    padding: 5px 10px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 0.85rem;
+    z-index: 10;
 }
 
-.controls {
-    background-color: #333;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.controls button {
-    background-color: #4a4a4a;
-    border-radius: 50%; /* Circular buttons */
-    width: 50px;
-    height: 50px;
-    padding: 0; /* Remove padding for icon centering */
+/* Placeholder for camera off */
+.placeholder-icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Position over the container */
+    top: 0;
+    left: 0;
+}
+
+.placeholder-icon svg {
+    width: 60px; /* Adjust size */
+    height: 60px;
+    fill: #a0a0a0; /* Lighter gray for icon */
+}
+
+/* Enhanced Controls Bar */
+.controls {
+    background-color: #202124; /* Match dark background */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Adjust gap */
+    border-top: 1px solid #3c4043; /* Subtle separator */
+}
+
+.controls button {
+    background-color: #3c4043; /* Darker gray buttons */
+    border-radius: 50%;
+    width: 56px; /* Slightly larger */
+    height: 56px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: none;
 }
 
 .controls button:hover {
-    background-color: #5a5a5a;
+    background-color: #4a4e54; /* Lighter gray on hover */
+}
+
+.controls button:active {
+    transform: scale(0.95);
 }
 
 .controls button svg {
     fill: white;
+    width: 26px; /* Adjust icon size */
+    height: 26px;
 }
 
 .controls button span {
-   display: none; /* Hide text, use title attribute */
+   display: none; /* Keep text hidden */
+}
+
+/* Specific button colors */
+.controls button.mic-off,
+.controls button.cam-off {
+    background-color: #ea4335; /* Google Red for off state */
+}
+.controls button.mic-off:hover,
+.controls button.cam-off:hover {
+    background-color: #d93025; /* Darker red on hover */
 }
 
 #leave-btn {
-    background-color: #d93025; /* Red for leave button */
+    background-color: #ea4335; /* Red for leave button */
+    margin-left: 20px; /* Add some space before leave */
 }
 
 #leave-btn:hover {
-    background-color: #a52714;
+    background-color: #d93025;
 }
 
 /* Responsive adjustments */
@@ -162,33 +303,46 @@ button:hover {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
     .controls {
-        padding: 10px;
-        gap: 15px;
+        padding: 12px 15px;
+        gap: 12px;
     }
     .controls button {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
+    }
+    .controls button svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 20px;
+        padding: 25px;
     }
     h1 {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
     .video-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1fr; /* Single column */
         gap: 5px;
         padding: 5px;
     }
      .controls {
         gap: 10px;
+        padding: 10px;
     }
     .controls button {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
+    }
+     .controls button svg {
+        width: 22px;
+        height: 22px;
+    }
+    .participant-name {
+        font-size: 0.8rem;
+        padding: 4px 8px;
     }
 }
 

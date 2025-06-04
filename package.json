@@ -14,7 +14,7 @@
     "video",
     "conference"
   ],
-  "author": "Mounsef Litniti",
+  "author": "Manus AI",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",

@@ -66,10 +66,10 @@ L'application est conçue pour être légère et facile à déployer, utilisant 
     ```bash
     node server.js
     ```
-    Le serveur devrait démarrer et afficher : `Serveur démarré sur http://localhost:3000`
+    Le serveur devrait démarrer et afficher : `Serveur démarré sur http://localhost:3001`
 
 5.  **Accéder à l'application** :
-    *   Ouvrez votre navigateur et allez à l'adresse `http://localhost:3000`.
+    *   Ouvrez votre navigateur et allez à l'adresse `http://localhost:3001`.
     *   Entrez votre nom et cliquez sur "Créer une nouvelle réunion".
     *   Autorisez l'accès à votre caméra et microphone si le navigateur le demande.
     *   Pour tester avec plusieurs participants, ouvrez le lien de la réunion (copié depuis la barre d'adresse) dans un autre onglet ou un autre navigateur sur la même machine ou une autre machine sur le même réseau local.
