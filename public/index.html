@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planifier une réunion - Vidéo Conférence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Planifier ou Rejoindre une Réunion</h1>
+        <form id="join-form">
+            <div class="form-group">
+                <label for="username">Votre nom :</label>
+                <input type="text" id="username" name="username" required placeholder="Entrez votre nom">
+            </div>
+            <button type="submit" id="create-meeting-btn">Créer une nouvelle réunion</button>
+            <p>Ou rejoignez une réunion existante en utilisant le lien fourni.</p>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script> <!-- Socket.IO client library -->
+    <script src="script.js"></script>
+</body>
+</html>
