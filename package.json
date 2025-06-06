@@ -1,24 +1,34 @@
 {
-  "name": "video-conference-app",
+  "name": "video-meet-app",
   "version": "1.0.0",
-  "description": "Application de visioconférence simple type Google Meet",
-  "main": "server.js",
+  "description": "A modern video conferencing application with Node.js/Express backend and HTML/CSS/JS frontend",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "build": "echo \"No build step required for this project\" && exit 0"
   },
   "keywords": [
+    "video",
+    "conferencing",
     "webrtc",
     "socket.io",
-    "express",
-    "video",
-    "conference"
+    "express"
   ],
-  "author": "Manus AI",
-  "license": "ISC",
+  "author": "Mounsef Litniti",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.19.2",
-    "socket.io": "^4.7.5"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.1",
+    "xss": "^1.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
-

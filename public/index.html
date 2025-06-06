@@ -1,55 +1,190 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planifier une réunion - Vidéo Conférence</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MeetNow - Video Conferencing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Créer ou Rejoindre une Réunion</h1>
-        
-        <!-- Section pour créer une nouvelle réunion -->
-        <div id="create-section">
-            <h2>Créer une nouvelle réunion</h2>
-            <form id="create-form">
-                <div class="form-group">
-                    <label for="username-create">Votre nom :</label>
-                    <input type="text" id="username-create" name="username" required placeholder="Entrez votre nom">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <div class="logo">
+                        <i class="fa-solid fa-video"></i> MeetNow
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-it-works">How It Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary start-meeting" href="#" id="create-meeting">Start Meeting</a>
+                        </li>
+                    </ul>
                 </div>
-                <button type="submit" id="generate-link-btn">Générer un lien de réunion</button>
-            </form>
-            <div id="link-display-section" style="display: none; margin-top: 20px;">
-                <h3>Lien de réunion généré :</h3>
-                <input type="text" id="meeting-link" readonly style="width: calc(100% - 22px); margin-bottom: 10px;">
-                <button id="copy-link-btn">Copier le lien</button>
-                <button id="join-now-btn" style="margin-left: 10px;">Rejoindre maintenant</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1>Connect with anyone, anywhere, anytime</h1>
+                        <p class="lead">High-quality video meetings made simple and accessible for everyone.</p>
+                        <div class="meeting-controls">
+                            <div class="input-group mb-3">
+                                <input type="text" id="meeting-id-input" class="form-control" placeholder="Enter meeting code or leave empty to create new">
+                                <button class="btn btn-primary" id="join-meeting">Join Meeting</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image">
+                            <img src="assets/hero-image.svg" alt="Video conference illustration" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="text-center mb-5">Why Choose MeetNow?</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>HD Video</h3>
+                            <p>Crystal clear video quality for face-to-face conversations that feel natural.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3>Screen Sharing</h3>
+                            <p>Share your screen with participants to collaborate effectively.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Live Chat</h3>
+                            <p>Send messages to everyone in the meeting without interrupting the flow.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Secure Meetings</h3>
+                            <p>End-to-end encryption and unique meeting codes keep your conversations private.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Cross-Device</h3>
+                            <p>Join from any device with a browser - no downloads required.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3>Instant Sharing</h3>
+                            <p>Generate and share meeting links with just one click.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="text-center mb-5">How It Works</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Create Meeting</h3>
+                            <p>Click "Start Meeting" or generate a unique code</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Share Link</h3>
+                            <p>Send the meeting link to your participants</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Join Meeting</h3>
+                            <p>Enter your name and join with video and audio</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Collaborate</h3>
+                            <p>Enjoy HD video, screen sharing, and chat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container text-center">
+                <h2>Ready to start your meeting?</h2>
+                <p class="lead">No sign-ups, no downloads, just instant video conferencing</p>
+                <button class="btn btn-lg btn-primary" id="cta-create-meeting">Start a Meeting Now</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="logo">
+                        <i class="fa-solid fa-video"></i> MeetNow
+                    </div>
+                    <p>Connect with anyone, anywhere, anytime.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 MeetNow. All rights reserved.</p>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <hr style="margin: 30px 0;">
-
-        <!-- Section pour rejoindre avec un lien existant -->
-        <div id="join-section">
-            <h2>Rejoindre avec un lien ou un code</h2>
-            <form id="join-form-link">
-                 <div class="form-group">
-                    <label for="username-join">Votre nom :</label>
-                    <input type="text" id="username-join" name="username" required placeholder="Entrez votre nom">
-                </div>
-                <div class="form-group">
-                    <label for="join-link-input">Lien ou code de la réunion :</label>
-                    <input type="text" id="join-link-input" name="meetingLink" required placeholder="Collez le lien ou le code ici">
-                </div>
-                <button type="submit" id="join-with-link-btn">Rejoindre la réunion</button>
-            </form>
-        </div>
-
-    </div>
-
-    <!-- Socket.IO client library - Peut être retiré d'ici si non nécessaire sur index -->
-    <!-- <script src="/socket.io/socket.io.js"></script> --> 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/landing.js"></script>
 </body>
 </html>
